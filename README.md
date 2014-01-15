@@ -4,13 +4,13 @@ A simple dynamic DNS updater for the CloudFlare.com API, written in PHP. Require
 
 ### Installing
 
-Each release of cfddns includes a `cfddns.phar` file that includes all of the files needed to run the tool. You can find a list of each release and the available downloads at https://github.com/deefour/cfddns/releases
+Each release of cfddns includes a `cfddns.phar` file containing all files needed to run the tool. You can find a list of releases and the available downloads at https://github.com/deefour/cfddns/releases
 
-Download the `cfddns.phar` and put it somewhere sane, like `~/bin/`.
+**Download the `cfddns.phar` and put it somewhere sane, like `~/bin/`.**
 
 ### Configuration
 
-cfddns reads an INI configuration file to make proper API calls against CloudFlare. An annotated template can be found below and at https://github.com/deefour/blob/master/.cfddns.template
+cfddns reads an INI configuration file to make proper API calls against CloudFlare. An annotated template can be found below and at https://github.com/deefour/cfddns/blob/master/.cfddns.template
 
 ```ini
 ; Your CloudFlare API key
@@ -36,4 +36,4 @@ The updater is only useful if run regularly. This can be done by creating a cron
 
 ## License
 
-Copyright (c) 2014 Jason Daly. Released under the [MIT License](http://deefour.mit-license.org/)
+Copyright (c) 2014 Jason Daly *(deefour)*. Released under the [MIT License](http://deefour.mit-license.org/)
