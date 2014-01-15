@@ -23,7 +23,7 @@ use Colors\Color;
 
 // Setup
 // -----------------------------------------------------------------------------
-$color = new Color;
+$color     = new Color;
 $shortOpts = 'c:v';
 $longOpts  = [ 'config:', 'verbose', 'version' ];
 $options   = getopt($shortOpts, $longOpts);
