@@ -25,10 +25,19 @@ use Colors\Color;
 // -----------------------------------------------------------------------------
 $color = new Color;
 $shortOpts = 'c:v';
-$longOpts  = [ 'config:', 'verbose' ];
+$longOpts  = [ 'config:', 'verbose', 'version' ];
 $options   = getopt($shortOpts, $longOpts);
 $iniFile   = getset([ $options['c'], $options['config'], getenv('HOME') . '/.cfddns' ]);
 $verbose   = ! empty(array_intersect([ 'v', 'verbose' ], array_keys($options)));
+
+
+
+// Print Version
+// -----------------------------------------------------------------------------
+if (array_key_exists('version', $options)) {
+  echo "0.1.0" . PHP_EOL;
+  exit;
+}
 
 
 
