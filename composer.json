@@ -1,0 +1,28 @@
+{
+    "name": "deefour/cfddns",
+    "description": "Dynamic DNS Updater for CloudFlare",
+    "require": {
+        "guzzle/guzzle": "3.8.*@dev",
+        "kevinlebrun/colors.php": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.9.*@dev",
+        "mockery/mockery": "0.9.*@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Deefour\\": "src/Deefour/"
+        },
+        "files": [
+            "src/Deefour/helpers.php"
+        ]
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jason Daly",
+            "email": "jason@deefour.me"
+        }
+    ],
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,6 @@
+/vendor
+.DS_Store
+/build
+.cfddns
+composer.lock
+create-phar.php

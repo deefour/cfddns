@@ -1,0 +1,11 @@
+; Your CloudFlare API key
+apikey=
+
+; The email address associated with your CloudFlare account
+email=
+
+; The full domain you wish to set the A record for.
+;
+; The TLD should already exist within your cloudflare account. It does not matter
+; if an A record for the subdomain already exists
+hostname=
