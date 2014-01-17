@@ -100,14 +100,15 @@ class Updater {
    */
   public function update() {
     $data = [
-      'act'     => 'rec_new',
-      'tkn'     => $this->config()['apikey'],
-      'email'   => $this->config()['email'],
-      'z'       => $this->domain,
-      'ttl'     => 1,
-      'type'    => 'A',
-      'name'    => $this->subdomain,
-      'content' => $this->ip(),
+      'act'          => 'rec_new',
+      'tkn'          => $this->config()['apikey'],
+      'email'        => $this->config()['email'],
+      'z'            => $this->domain,
+      'ttl'          => 1,
+      'type'         => 'A',
+      'name'         => $this->subdomain,
+      'content'      => $this->ip(),
+      'service_mode' => 0,
     ];
 
     if ($this->config()['rec_id']) {
