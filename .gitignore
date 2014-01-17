@@ -4,3 +4,4 @@
 .cfddns
 composer.lock
 create-phar.php
+bin/cfddns.phar

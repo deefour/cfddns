@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
 /**
@@ -14,7 +15,7 @@
  * @example ./cfddns.phar -c ~/.cfddns
  */
 
-require_once __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use Deefour\CFDDNS\Updater;
 use Colors\Color;
@@ -23,7 +24,7 @@ use Colors\Color;
 
 // Setup
 // -----------------------------------------------------------------------------
-$color = new Color;
+$color     = new Color;
 $shortOpts = 'c:v';
 $longOpts  = [ 'config:', 'verbose', 'version' ];
 $options   = getopt($shortOpts, $longOpts);
@@ -65,5 +66,4 @@ echo PHP_EOL .
        ' <magenta>-></magenta> ' .
        sprintf('<bold><white>%s</white></bold>', $updater->ip())
      )->colorize() .
-     PHP_EOL .
-     PHP_EOL;
+     PHP_EOL . PHP_EOL;
