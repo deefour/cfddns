@@ -18,6 +18,14 @@ use Guzzle\Http\Client;
 class Updater {
 
   /**
+   * Path to the .cfddns configuration file
+   *
+   * @access private
+   * @var string
+   */
+  private $iniFile;
+
+  /**
    * Config data from the INI file
    *
    * @access private
@@ -85,7 +93,9 @@ class Updater {
    * @return void
    */
   public function __construct($iniFile) {
-    $this->_loadConfig($iniFile);
+    $this->iniFile = $iniFile;
+
+    $this->_loadConfig();
     $this->_parseHostname();
     $this->_resolveIpAddress();
   }
@@ -129,7 +139,7 @@ class Updater {
 
     if ( ! array_key_exists('rec_id', $this->config)) {
       file_put_contents(
-        $iniFile,
+        $this->iniFile,
         sprintf("\nrec_id=%s\n", $response['response']['rec']['obj']['rec_id']),
         FILE_APPEND
       );
@@ -201,12 +211,12 @@ class Updater {
    * @throws Deefour\CFDDNS\Exception\ConfigException when the config is malformed or not found
    * @return void
    */
-  private function _loadConfig($iniFile) {
-    if ( ! is_file($iniFile)) {
+  private function _loadConfig() {
+    if ( ! is_file($this->iniFile)) {
       throw new Exception\ConfigException($this);
     }
 
-    $this->config = parse_ini_file($iniFile);
+    $this->config = parse_ini_file($this->iniFile);
 
     if ( ! empty(array_diff(['email', 'hostname', 'apikey'], array_keys($this->config)))) {
       throw new Exception\ConfigException($this);
