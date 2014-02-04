@@ -46,6 +46,7 @@ $finder = new Finder;
 $finder->files()
   ->ignoreVCS(true)
   ->name('*.php')
+  ->name('*.pem')
   ->name('*.md5')
   ->exclude('Tests')
   ->in(__DIR__ . '/../vendor/symfony/event-dispatcher/')
@@ -62,6 +63,7 @@ addFile($phar, new SplFileInfo(__DIR__ . '/../vendor/composer/autoload_psr4.php'
 addFile($phar, new SplFileInfo(__DIR__ . '/../vendor/composer/autoload_classmap.php'));
 addFile($phar, new SplFileInfo(__DIR__ . '/../vendor/composer/autoload_real.php'));
 addFile($phar, new SplFileInfo(__DIR__ . '/../vendor/composer/autoload_files.php'));
+addFile($phar, new SplFileInfo(__DIR__ . '/../vendor/composer/include_paths.php'));
 addFile($phar, new SplFileInfo(__DIR__ . '/../vendor/composer/ClassLoader.php'));
 
 $content = file_get_contents(__DIR__ . '/../bin/cfddns');
