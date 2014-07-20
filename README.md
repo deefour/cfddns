@@ -34,6 +34,13 @@ The updater is only useful if run regularly. This can be done by creating a cron
 *\2 * * * * /usr/bin/env php ~/bin/cfddns.phar -c ~/.cfddns
 ```
 
+## Changelog
+
+#### 0.3.1 - July 20, 2014
+
+ - Fixed PHP notices
+ - Upgraded dependencies
+
 ## License
 
 Copyright (c) 2014 Jason Daly *(deefour)*. Released under the [MIT License](http://deefour.mit-license.org/)
