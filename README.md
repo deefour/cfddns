@@ -6,7 +6,7 @@ A simple dynamic DNS updater for the CloudFlare.com API, written in PHP. Require
 
 Each release of cfddns includes a `cfddns.phar` file containing all files needed to run the tool. You can find a list of releases and the available downloads at https://github.com/deefour/cfddns/releases
 
-**Download the `cfddns.phar` and put it somewhere sane, like `~/bin/`.**
+**Download the `cfddns.phar` and put it in a directory in your `$PATH`.**
 
 ### Configuration
 
@@ -31,7 +31,7 @@ hostname=home.deefour.me
 The updater is only useful if run regularly. This can be done by creating a cron job for `cfddns`.
 
 ```
-*\2 * * * * /usr/bin/env php ~/bin/cfddns.phar -c ~/.cfddns
+*\2 * * * * /usr/bin/env php /usr/local/bin/cfddns.phar -c ~/.cfddns
 ```
 
 ## Changelog
