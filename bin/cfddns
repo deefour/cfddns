@@ -28,7 +28,7 @@ $color     = new Color;
 $shortOpts = 'c:v';
 $longOpts  = [ 'config:', 'verbose', 'version' ];
 $options   = getopt($shortOpts, $longOpts);
-$iniFile   = getset([ $options['c'], $options['config'], getenv('HOME') . '/.cfddns' ]);
+$iniFile   = getset([ [ $options, 'c' ], [ $options, 'config' ], getenv('HOME') . '/.cfddns' ]);
 $verbose   = ! empty(array_intersect([ 'v', 'verbose' ], array_keys($options)));
 
 
