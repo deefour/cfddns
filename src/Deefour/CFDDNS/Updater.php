@@ -2,8 +2,6 @@
 
 use Guzzle\Http\Client;
 
-
-
 /**
  * Dynamic DNS updater for the CloudFlare
  *
@@ -82,15 +80,19 @@ class Updater {
    */
   private $apiPath = '/api_json.html';
 
-
-
   /**
-   * Constructor; loads the configuration, parses the TLD and subdomain from the
-   * configured hostname, and determines the external IP of the executing machine
+   * Constructor; loads the configuration, parses the TLD and subdomain from
+   * the
+   * configured hostname, and determines the external IP of the executing
+   * machine
    *
    * @access public
+   *
    * @param  $iniFile  string
-   * @return void
+   *
+   * @throws Exception\ConfigException
+   * @throws Exception\HostnameException
+   * @throws Exception\IpResolutionException
    */
   public function __construct($iniFile) {
     $this->iniFile = $iniFile;
@@ -105,8 +107,8 @@ class Updater {
    * with the resolved external IP
    *
    * @access public
-   * @throws Deefour\CFDDNS\Exception\ApiException when something goes wrong
-   * @return boolean true when successful
+   * @return bool when something goes wrong
+   * @throws Exception\ApiException
    */
   public function update() {
     $data = [
@@ -124,7 +126,7 @@ class Updater {
     if ($this->config()['rec_id']) {
       $data = array_merge(
         $data,
-        [ 'act' => 'rec_edit', 'id'  => $this->config()['rec_id'] ]
+        [ 'act' => 'rec_edit', 'id' => $this->config()['rec_id'] ]
       );
     }
 
@@ -168,14 +170,11 @@ class Updater {
     return $this->ip;
   }
 
-
-
   /**
    * Parses the TLD and subdomain from the configured hostname
    *
    * @access private
-   * @throws Deefour\CFDDNS\Exception\HostnameException when the hostname is malformed
-   * @return void
+   * @throws Exception\HostnameException
    */
   private function _parseHostname() {
     preg_match('/([^\.]+)\.([^\.]+\.[^\/$]+)/', $this->config()['hostname'], $domainParts);
@@ -187,11 +186,11 @@ class Updater {
   }
 
   /**
-   * Resolves the IP address by sending a GET request to the configured resolver
+   * Resolves the IP address by sending a GET request to the configured
+   * resolver
    *
    * @access private
-   * @throws Deefour\CFDDNS\Exception\IpResolutionException when the lookup fails
-   * @return void
+   * @throws Exception\IpResolutionException
    */
   private function _resolveIpAddress() {
     $client   = new Client($this->ipResolver);
@@ -208,8 +207,7 @@ class Updater {
    * Loads and parses the INI config if it's a valid file
    *
    * @access private
-   * @throws Deefour\CFDDNS\Exception\ConfigException when the config is malformed or not found
-   * @return void
+   * @throws Exception\ConfigException
    */
   private function _loadConfig() {
     if ( ! is_file($this->iniFile)) {
@@ -218,7 +216,7 @@ class Updater {
 
     $this->config = parse_ini_file($this->iniFile);
 
-    if ( ! empty(array_diff(['email', 'hostname', 'apikey'], array_keys($this->config)))) {
+    if ( ! empty(array_diff([ 'email', 'hostname', 'apikey' ], array_keys($this->config)))) {
       throw new Exception\ConfigException($this);
     }
   }

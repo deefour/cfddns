@@ -1,8 +1,8 @@
 <?php namespace Deefour\CFDDNS\Exception;
 
 /**
- * Thrown when something goes wrong on CloudFlare's end, either due to a malformed
- * request by the updater or issues internal to their service
+ * Thrown when something goes wrong on CloudFlare's end, either due to a
+ * malformed request by the updater or issues internal to their service
  *
  * @see Deefour\CFDDNS\Updater::update
  */

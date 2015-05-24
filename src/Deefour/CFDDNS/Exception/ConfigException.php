@@ -17,9 +17,9 @@ class ConfigException extends GenericException {
    */
   public function __toString() {
     return '<red>cfddns INI file must contain</red>' . PHP_EOL .
-           '  - <white>apikey</white>' . PHP_EOL .
-           '  - <white>email</white>' . PHP_EOL .
-           '  - <white>hostname</white>';
+    '  - <white>apikey</white>' . PHP_EOL .
+    '  - <white>email</white>' . PHP_EOL .
+    '  - <white>hostname</white>';
   }
 
 }

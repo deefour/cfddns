@@ -14,14 +14,13 @@ class GenericException extends \Exception {
    */
   protected $updater;
 
-
-
   /**
-   * Constructor; stores a reference to the invoking updater along with an optional
-   * message that will be json encoded to a string.
+   * Constructor; stores a reference to the invoking updater along with an
+   * optional message that will be json encoded to a string.
    *
-   * @param  \Deefour\CFDDNS\Updater  $updater
-   * @param  string|null  $message
+   * @param  \Deefour\CFDDNS\Updater $updater
+   * @param  string|null             $message
+   *
    * @return void
    */
   public function __construct(\Deefour\CFDDNS\Updater $updater, $message = null) {
