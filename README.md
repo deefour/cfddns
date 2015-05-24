@@ -36,6 +36,10 @@ The updater is only useful if run regularly. This can be done by creating a cron
 
 ## Changelog
 
+#### 0.3.2 - May 25, 2014
+
+ - Code formatting
+
 #### 0.3.1 - July 20, 2014
 
  - Fixed PHP notices

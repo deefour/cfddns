@@ -1,7 +1,7 @@
 {
     "name": "deefour/cfddns",
     "description": "Dynamic DNS Updater for CloudFlare",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "require": {
         "guzzle/guzzle": "~3.9.1",
         "kevinlebrun/colors.php": "dev-master"
